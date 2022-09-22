@@ -14,5 +14,18 @@ Small extra note on the cracking times mentioned above, they are taken from the 
 For this assignment you will work as a team to create a basic web application that can accomplish the same basic idea.
 
 ## Requirements
+ 1. A simple flask app that hosts the website, which:
+    * Displays gifs of dice being rolled according to the chosen word (i.e. 5 Dice with 1 dot)
+    * Displays the word that is associated with the dice roll (i.e. abacus)
+    * Does this for every word that is chosen in the passphrase
 
+ 2. A simple Python function that:
+    * Only uses the PIL, flask, json, & datetime / time libraries
+    * Can randomly select 5 numbers from 1 to 6 and get the associated word
+    * Creates gifs of dice rolling to the chosen numbers
 
+ 3. The flask app should use the Python function to get all words and gifs
+    * By default the webpage should show at least 6 words and associated gifs
+ 
+ 4. This should all be done in a new branch for this repository
+ 
