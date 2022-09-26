@@ -11,7 +11,7 @@
 ---
 
 ### Requirements
-Create a loop to count from 1 to 100.
-Display the numbers counting 1-100.
-Write conditional statements to check if the number is divisible by 3, 5, or by both.
-Display the correct word if the conditions are met, otherwise display the number for the user.
+1. Create a loop to count from 1 to 100.
+2. Display the numbers counting 1-100.
+3. Write conditional statements to check if the number is divisible by 3, 5, or by both.
+4. Display the correct word if the conditions are met, otherwise display the number for the user.
