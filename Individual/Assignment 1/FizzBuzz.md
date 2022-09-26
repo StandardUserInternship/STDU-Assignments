@@ -2,6 +2,11 @@
 
 ---
 
+## Introduction
+FizzBuzz is one of the most popular programming assignments given to beginners or interviewees. This assignment is a great way to learn the basics of programming, as it covers a wide range of topics including loops, conditionals, and basic math. It can be solved in any programming language, so it’s a great way to start learning a new language as well.
+
+---
+
 ## Lab Assignment
 1. Create a program that counts from 1 to 100 and prints out each number with three exceptions. 
 2. When the program would print out a number divisible by 3 instead print out Fizz
