@@ -21,5 +21,7 @@ This assignment is designed to introduce interns to the basics of Python scripti
 3. When the program would print out a number divisible by 5 instead print out Buzz
 4. When the program would print out a number divisible by both 3 and 5 instead print out FizzBuzz
 
+---
+
 ### Requirements
 One Python script that generates the specified output.
