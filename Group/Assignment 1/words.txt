@@ -2999,7 +2999,7 @@
 32625	greasily
 32626	greedily
 32631	greedless
-32632	greedy
+32632	great
 32633	green
 32634	greeter
 32635	greeting
