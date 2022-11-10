@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>FizzBuzz</title>
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+        crossorigin="anonymous"></script>
+        <script>
+        $.ajax({
+            url: "/fizzbuzz",
+            contentType: "application/json",
+            applicationType: "json",
+            type: "GET",
+            success: function (data) {
+              console.log(data)
+            }
+
+          });
+        </script>
+    </head>
+    <body>
+      <script type="text/javascript">
+        var sum;
+        var i;
+        
+        document.write("fizzbuzz", "<br>");
+        
+        sum = 0;
+        for (i = 1; i < 101; i = i +1){
+            if (i % 3 == 0 && i % 5 == 0){
+                document.write("fizzbuzz", "<br>");
+            }
+            else if (i % 3 == 0){
+                document.write("fizz", "<br>");
+            }
+            else if (i % 5 == 0){
+                document.write("buzz", "<br>");
+            }
+            else{
+                document.write(i, "<br>");
+            }
+        }
+        
+        </script>
+    </body>
+</html>
+
+
+
+
+

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>FizzBuzz</title>
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+        crossorigin="anonymous"></script>
+        <script>
+        $.ajax({
+            url: "/factorize",
+            contentType: "application/json",
+            applicationType: "json",
+            type: "GET",
+            success: function (data) {
+              console.log(data)
+            }
+
+          });
+        </script>
+    </head>
+    <body>
+      <script type="text/javascript">
+
+      function factorial(n) {
+        if (n == 0)
+        return 1;
+        let i = n, fact = 1;
+        while (Math.floor(n / i) != n) {
+            fact = fact * i;
+            i--;
+        }
+        return fact;
+      }
+
+      let num = 8;
+      document.write("Factorial of " + num + " is " + factorial(num) + "<br>");
+        </script>
+    </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+            h1{text-align: center;}
+            p {text-align: center;}
+            #container{text-align: center;}
+        </style>
+        <meta charset="UTF-8">
+        <title>SwapCase</title>
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+        crossorigin="anonymous"></script>
+        <script>
+      $(document).ready(() => {
+            let results = document.getElementById("results");
+            let BTN = document.getElementById("swap");
+            let input = document.getElementById("input");
+
+            BTN.addEventListener("click", () => {
+                alert(input.value);
+                let userInput = input.value;
+
+                 $.ajax({
+                    url: "/swapcasedata",
+                    type: "POST",
+                    contentType: "application/json",
+                    applicationType: "json",
+                    data: JSON.stringify({ data: userInput }),
+                    success: (response) => {
+                    document.getElementById("results").innerText = response.upper;
+            },
+          });
+        });
+    });
+        </script>
+    </head>
+    <body>
+        <h1>SwapCase:</h1>
+        <div id="container">
+            <input type="text" id="input" />
+            <button id="swap">Swap</button>
+        </div>
+        <p style="font-size: 100px;" id='results'> </p>
+    </body>
+</html>
