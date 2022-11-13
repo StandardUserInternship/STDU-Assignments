@@ -1,40 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <style>
+          h1{text-align: center;}
+          p{text-align: center;}
+          #container{text-align: center;}
+        </style>
         <meta charset="UTF-8">
-        <title>FizzBuzz</title>
+        <title>Factorial</title>
         <script src="https://code.jquery.com/jquery-3.6.1.min.js"
         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
         crossorigin="anonymous"></script>
         <script>
-        $.ajax({
-            url: "/factorize",
-            contentType: "application/json",
-            applicationType: "json",
-            type: "GET",
-            success: function (data) {
-              console.log(data)
-            }
+          $(document).ready(() => {
+            let results = document.getElementById("results");
+            let BTN = document.getElementById("factorial");
+            let input = document.getElementById("input")
 
+            BTN.addEventListener("click", () => {
+              alert(input.value);
+              let userInput = input.value;
+
+              $.ajax({
+                url: "/factorizedata",
+                type: "POST",
+                contentType: "application/json",
+                applicationType: "json",
+                data: JSON.stringify({ data: userInput}),
+                success: (response) => {
+                document.getElementById("results").innerText = response.factorized;
+                },
+              });
+            });
           });
+
         </script>
     </head>
     <body>
-      <script type="text/javascript">
-
-      function factorial(n) {
-        if (n == 0)
-        return 1;
-        let i = n, fact = 1;
-        while (Math.floor(n / i) != n) {
-            fact = fact * i;
-            i--;
-        }
-        return fact;
-      }
-
-      let num = 8;
-      document.write("Factorial of " + num + " is " + factorial(num) + "<br>");
-        </script>
+      <h1>Factorial</h1>
+      <div id="container">
+          <input type="text" id="input" />
+          <button id="factorial">Factorial</button>
+      </div>
+      <p style="font-size: 100px;" id="results"></p>
     </body>
 </html>

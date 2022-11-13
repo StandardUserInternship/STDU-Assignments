@@ -27,14 +27,26 @@ def swapCaseData():
     else:
         myData = 5
         return jsonify({"data": myData})
-
+    
 @app.route("/factorize")
-def factorize():
+def factor():
     return render_template("factorize.html")
-    
-@app.route("/dice")
-def diceRoll():
-    return "Create a script that rolls a 6 sided dice 100 times, for each dice roll, save the results. After all 100 rolls are completed, use that data to create a single line graph utilizing pyplot."
+
+@app.route("/factorizedata", methods=["GET", "POST"])
+def factorizeData():
+    if request.method == "POST":
+        data = request.get_json()["data"]
+        data = int(data)
+        def factorial(n):
+            fact = 1
+            for i in range(1, n+1):
+                fact *= i
+            return fact
+        print(data)
+        return jsonify({"factorized": factorial(data)})
+    else:
+        myData = 5
+        return jsonify({"data": myData})
 
 
 
@@ -44,9 +56,9 @@ def diceRoll():
 
 
 
-
-    
-
+#@app.route("/dice")
+#def diceRoll():
+    #return "Create a script that rolls a 6 sided dice 100 times, for each dice roll, save the results. After all 100 rolls are completed, use that data to create a single line graph utilizing pyplot."
 
 #@app.route("/fizzbuzz", methods=['POST', 'GET'])
 #def lab1():
