@@ -1,30 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-      <style>
-        h1{text-align: center;}
-        body{text-align: center;}
-      </style>
-        <meta charset="UTF-8">
-        <title>Index</title>
-        <h1>StandardUser Cybersecurity Internship</h1>
-        <script src="https://code.jquery.com/jquery-3.6.1.min.js"
-        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
-        crossorigin="anonymous"></script>
-        <script>
-        $.ajax({
-            url: "/",
-            contentType: "application/json",
-            applicationType: "json",
-            type: "GET",
-            success: function (data) {
-              console.log(data)
-            }
-
-          });
-        </script>
-    </head>
-    <body>
-      Hello! Welcome to the Index Page.
-    </body>
+  <head>
+    <style>
+      h1 {
+        text-align: center;
+      }
+      h3 {
+        text-align: center;
+      }
+      body {
+        text-align: center;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <title>Index</title>
+    <h1>StandardUser Cybersecurity Internship</h1>
+    <h3>
+      <a href="/factorize"> <button>Factorize</button></a>
+      <a href="/fizzbuzz"> <button>Fizzbuzz</button></a>
+      <a href="/swapcase"> <button>SwapCase</button></a>
+    </h3>
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $.ajax({
+        url: "/",
+        contentType: "application/json",
+        applicationType: "json",
+        type: "GET",
+        success: function (data) {
+          console.log(data);
+        },
+      });
+    </script>
+  </head>
+  <body>
+    Hello! Welcome to the Index Page.
+  </body>
 </html>
