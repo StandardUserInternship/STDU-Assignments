@@ -32,34 +32,34 @@
       integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
       crossorigin="anonymous"
     ></script>
-    <script>
-      $(document).ready(() => {
-        let password = document.getElementById("password");
-        let BTN = document.getElementById("roll_dice");
-        let random = document.getElementById("random");
-
-        BTN.addEventListener("click", () => {
-          alert(random.innerHTML);
-          let newPassword = random.innerHTML;
-
-          $.ajax({
-            url: "/dicewaredata",
-            type: "POST",
-            contentType: "application/json",
-            applicationType: "json",
-            data: JSON.stringify(newPassword),
-            success: (response) => {
-              document.getElementById("password").innerHTML = response;
-            },
-          });
-        });
-      });
-    </script>
   </head>
   <body>
     <div id="container">
-      <button id="swap">Get Password</button>
+      <button id="roll_dice">Get Password</button>
     </div>
     <p style="font-size: 100px" id="results"></p>
   </body>
+  <script>
+    $(document).ready(() => {
+      let password = document.getElementById("password");
+      let BTN = document.getElementById("roll_dice");
+      let random = document.getElementById("results");
+
+      BTN.addEventListener("click", () => {
+        alert(random.innerHTML);
+        let newPassword = random.innerHTML;
+
+        $.ajax({
+          url: "/dicewaredata",
+          type: "POST",
+          contentType: "application/json",
+          applicationType: "json",
+          data: JSON.stringify(newPassword),
+          success: (response) => {
+            document.getElementById("results").innerHTML = response;
+          },
+        });
+      });
+    });
+  </script>
 </html>

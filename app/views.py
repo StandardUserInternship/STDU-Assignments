@@ -61,7 +61,6 @@ def dicwareData():
 
 
 
-
 #@app.route("/dice")
 #def diceRoll():
     #return "Create a script that rolls a 6 sided dice 100 times, for each dice roll, save the results. After all 100 rolls are completed, use that data to create a single line graph utilizing pyplot."
