@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      h1 {
+        text-align: center;
+      }
+      h3 {
+        text-align: center;
+      }
+      #container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diceware</title>
+    <h1>Diceware</h1>
+    <h3>
+      <a href="/"> <button>Home</button></a>
+      <a href="/factorize"> <button>Factorize</button></a>
+      <a href="/fizzbuzz"><button>Fizzbuzz</button></a>
+      <a href="/swapcase"> <button>SwapCase</button></a>
+    </h3>
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(document).ready(() => {
+        let password = document.getElementById("password");
+        let BTN = document.getElementById("roll_dice");
+        let random = document.getElementById("random");
+
+        BTN.addEventListener("click", () => {
+          alert(random.innerHTML);
+          let newPassword = random.innerHTML;
+
+          $.ajax({
+            url: "/dicewaredata",
+            type: "POST",
+            contentType: "application/json",
+            applicationType: "json",
+            data: JSON.stringify(newPassword),
+            success: (response) => {
+              document.getElementById("password").innerHTML = response;
+            },
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <button id="swap">Get Password</button>
+    </div>
+    <p style="font-size: 100px" id="results"></p>
+  </body>
+</html>

@@ -1,4 +1,4 @@
-import json
+import json, random
 
 from flask import Flask, jsonify, render_template, request
 
@@ -48,9 +48,15 @@ def factorizeData():
         myData = 5
         return jsonify({"data": myData})
 
+@app.route("/diceware")
+def diceware():
+    return render_template("diceware.html")
 
-
-
+@app.route("/dicewaredata", methods=["GET", "POST"])
+def dicwareData():
+    nameFile = open("words.txt", "r")
+    words = nameFile.readlines()
+    return (random.choice(words))
 
 
 
