@@ -14,10 +14,13 @@
       }
     </style>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FizzBuzz</title>
     <h1>FizzBuzz</h1>
     <h3>
       <a href="/"> <button>Home</button></a>
+      <a href="/diceware"> <button>Diceware</button></a>
       <a href="/factorize"> <button>Factorize</button></a>
       <a href="/swapcase"> <button>SwapCase</button></a>
     </h3>
@@ -26,17 +29,6 @@
       integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
       crossorigin="anonymous"
     ></script>
-    <script>
-      $.ajax({
-        url: "/fizzbuzz",
-        contentType: "application/json",
-        applicationType: "json",
-        type: "GET",
-        success: function (data) {
-          console.log(data);
-        },
-      });
-    </script>
   </head>
   <body>
     <script type="text/javascript">
@@ -59,4 +51,15 @@
       }
     </script>
   </body>
+  <script>
+    $.ajax({
+      url: "/fizzbuzz",
+      contentType: "application/json",
+      applicationType: "json",
+      type: "GET",
+      success: function (data) {
+        console.log(data);
+      },
+    });
+  </script>
 </html>

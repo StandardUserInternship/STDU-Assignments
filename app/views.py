@@ -58,24 +58,3 @@ def dicwareData():
     words = nameFile.readlines()
     return (random.choice(words))
 
-
-
-
-#@app.route("/dice")
-#def diceRoll():
-    #return "Create a script that rolls a 6 sided dice 100 times, for each dice roll, save the results. After all 100 rolls are completed, use that data to create a single line graph utilizing pyplot."
-
-#@app.route("/fizzbuzz", methods=['POST', 'GET'])
-#def lab1():
-    #listOfResults = []
-
-    #for i in range(100):
-       # if i % 3 == 0 and i % 5 == 0:
-            #listOfResults.append('FizzBuzz')
-       # elif i % 3 == 0:
-            #listOfResults.append('Fizz')
-        #elif i % 5 == 0:
-            #listOfResults.append('Buzz')
-       # else:
-            #listOfResults(i)
-    #return jsonify({'result': listOfResults})
