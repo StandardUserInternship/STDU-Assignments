@@ -63,6 +63,8 @@ for line in file:
 list = []
 def logic(n):
     for x, y in d.items():
+        #may need to change 'n' to an int
+        #when hunter returns a list of strings
         if x == n:
             list.append(y)
     print(list)
