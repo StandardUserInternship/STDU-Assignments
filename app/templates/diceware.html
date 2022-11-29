@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      h1 {
+        text-align: center;
+      }
+      h3 {
+        text-align: center;
+      }
+      #container {
+        text-align: center;
+      }
+      body {
+        text-align: center;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diceware</title>
+    <h1>Diceware</h1>
+    <h3>
+      <a href="/"> <button>Home</button></a>
+      <a href="/factorize"> <button>Factorize</button></a>
+      <a href="/fizzbuzz"><button>Fizzbuzz</button></a>
+      <a href="/swapcase"> <button>SwapCase</button></a>
+    </h3>
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div id="container">
+      <p>Enter a number from 1-6 to generate a strong password.</p>
+      <input type="text" id="input" />
+      <button id="roll_dice">Get Password</button>
+    </div>
+    <p style="font-size: 75px" id="results"></p>
+  </body>
+  <script>
+    $(document).ready(() => {
+      let password = document.getElementById("password");
+      let BTN = document.getElementById("roll_dice");
+      let random = document.getElementById("results");
+
+      BTN.addEventListener("click", () => {
+        let userInput = document.getElementById("input").value;
+        console.log(userInput);
+
+        $.ajax({
+          url: "/dicewaredata",
+          type: "POST",
+          contentType: "application/json",
+          applicationType: "json",
+          data: JSON.stringify(userInput),
+          success: (response) => {
+            document.getElementById("results").innerHTML = response;
+          },
+        });
+      });
+    });
+  </script>
+</html>

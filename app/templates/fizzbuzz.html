@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      h1 {
+        text-align: center;
+      }
+      h3 {
+        text-align: center;
+      }
+      body {
+        font-size: 16px;
+        text-align: center;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FizzBuzz</title>
+    <h1>FizzBuzz</h1>
+    <h3>
+      <a href="/"> <button>Home</button></a>
+      <a href="/diceware"> <button>Diceware</button></a>
+      <a href="/factorize"> <button>Factorize</button></a>
+      <a href="/swapcase"> <button>SwapCase</button></a>
+    </h3>
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var sum;
+      var i;
+
+      document.write("fizzbuzz", "<br>");
+
+      sum = 0;
+      for (i = 1; i < 101; i = i + 1) {
+        if (i % 3 == 0 && i % 5 == 0) {
+          document.write("fizzbuzz", "<br>");
+        } else if (i % 3 == 0) {
+          document.write("fizz", "<br>");
+        } else if (i % 5 == 0) {
+          document.write("buzz", "<br>");
+        } else {
+          document.write(i, "<br>");
+        }
+      }
+    </script>
+  </body>
+  <script>
+    $.ajax({
+      url: "/fizzbuzz",
+      contentType: "application/json",
+      applicationType: "json",
+      type: "GET",
+      success: function (data) {
+        console.log(data);
+      },
+    });
+  </script>
+</html>
