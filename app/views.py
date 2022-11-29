@@ -54,6 +54,7 @@ def diceware():
 
 @app.route("/dicewaredata", methods=["GET", "POST"])
 def dicwareData():
+
     #Linear Congruential Generator for a random number between 11111 - 66666
     def lcg(x, a, c, m):
         while True:
@@ -64,7 +65,8 @@ def dicwareData():
     def random_uniform_sample(n, interval, seed=time.time()):
         a, c, m = 1103515245, 12345, 2 ** 31
         bsdrand = lcg(seed, a, c, m)
-        r = 6
+        print(request.get_json())
+        r = int(request.get_json())
 
         lower, upper = interval[0], interval[1]
         sample = []

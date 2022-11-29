@@ -47,15 +47,15 @@
       let random = document.getElementById("results");
 
       BTN.addEventListener("click", () => {
-        alert(random.innerHTML);
-        let newPassword = random.innerHTML;
+        let userInput = document.getElementById("input").value;
+        console.log(userInput);
 
         $.ajax({
           url: "/dicewaredata",
           type: "POST",
           contentType: "application/json",
           applicationType: "json",
-          data: JSON.stringify(newPassword),
+          data: JSON.stringify(userInput),
           success: (response) => {
             document.getElementById("results").innerHTML = response;
           },
