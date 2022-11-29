@@ -1,42 +1,56 @@
-import random
-#import pandas as pd 
-
-#get number of dice rolls
-def num_rolls(how_many_rolls):
-    #get number of rolls from user 
-    if how_many_rolls >= 2 and how_many_rolls <= 8:
-        print('You selected ', how_many_rolls, ' rolls!')
-    else:
-        print('Error: Enter a number 2 - 8')
+import time
+import datetime
+import json
 
 
-
-
-#roll dice
+#roll dice with time function 
 def roll_dice():
-    r = [random.randint(1,6) for x in range(5)] #generate random dice roll from 1 to 6
+    #we need to make this more random 
+    curr = str(time.time())
 
-    string_r = [str(x) for x in r] #makes each element in the list 
+    dice = []
 
-    roll = ''.join(string_r) #joins list as one numeric string 
+    while True:
+        for cu in curr:
+            try:
+                num = int(cu)
+                if num > 0  and num < 7:
+                    dice.append(cu)
+                    if len(dice) == 5:
+                        break
+            except:
+                pass
+        if len(dice) == 5:
+            break
 
-    return roll #returns roll as the numeric string 
+    roll = ''.join(dice)
 
-#generate words from dice roll 
-def get_words():
-    #word_df = pd.read_csv('words.txt')
-    #return word_df
-    t = 6
+    return roll #returns roll 
+
+
+#generate words from dice roll (pass in roll variable)
+def get_words(roll):
+
+    file = open("words.txt")
+    data = file.readlines()
+    matchwords = []
+    for line in data:
+        row = line.split()
+        if row[0] == roll:
+            matchwords.append(row[1])
+
+    return matchwords
+
+
+def pass_phrase():
     
     
 
 
-
-    #return words,passphrase, and possible passwords
 
 #main function
 def main():
-    my = 5
+    
     #return
 
 user = roll_dice()
