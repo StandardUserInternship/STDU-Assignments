@@ -1,4 +1,4 @@
-import json, random
+import json, time
 
 from flask import Flask, jsonify, render_template, request
 
@@ -54,7 +54,72 @@ def diceware():
 
 @app.route("/dicewaredata", methods=["GET", "POST"])
 def dicwareData():
-    nameFile = open("words.txt", "r")
-    words = nameFile.readlines()
-    return (random.choice(words))
+    #Linear Congruential Generator for a random number between 11111 - 66666
+    def lcg(x, a, c, m):
+        while True:
+            x = (a * x + c) % m
+            yield x
+
+
+    def random_uniform_sample(n, interval, seed=time.time()):
+        a, c, m = 1103515245, 12345, 2 ** 31
+        bsdrand = lcg(seed, a, c, m)
+        r = 6
+
+        lower, upper = interval[0], interval[1]
+        sample = []
+        outList = []
+        for _ in range(r):
+            for i in range(n):
+                observation = (upper - lower) * (next(bsdrand) / (2 ** 31 - 1)) + lower
+                sample.append(round(observation))
+                num = ''.join(str(e) for e in sample)
+            outList.append(num)
+            sample.clear()
+        return outList
+
+#prints the generated list of size 6 for testing purposes
+    rus = random_uniform_sample(5, [1, 6])
+    print((rus))
+    
+    file = open("words.txt", "r")
+
+#defining the dictionary <key:value>
+#takes each line as a key (ints) and value (string)
+    d = {}
+    for line in file:
+        (key, value) = line.split()
+        d[int(key)] = value
+
+#logic for checking if the passed in value (n)
+#is inside the dictionary
+#appends the value associated with the key to the list
+
+    for i in range(0, len(rus)):
+        rus[i] = int(rus[i])
+    print(rus)
+
+    newList = []
+    def logic(n):
+        for x, y in d.items():
+            if x == n:
+                newList.append(y)
+        print(newList)
+
+#return for HTML page {{ result }}
+    def generatedPassword(sample):
+        for i in sample:
+            logic(i)
+
+    generatedPassword(rus)
+    return newList
+
+
+
+
+
+#cant use random function    
+#nameFile = open("words.txt", "r")
+#words = nameFile.readlines()
+#return (random.choice(words))
 
