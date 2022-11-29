@@ -114,6 +114,7 @@ def dicwareData():
             logic(i)
 
     generatedPassword(rus)
+    newList = ' '.join(newList).split(',')
     return newList
 
 
