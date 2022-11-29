@@ -46,7 +46,7 @@ rus = random_uniform_sample(5, [1, 6])
 print((rus))
 
 
-#cody's portion [50-86]
+#cody's portion [50-80]
 file = open("words.txt", "r")
 
 #defining the dictionary <key:value>
@@ -71,20 +71,9 @@ def logic(n):
             newList.append(y)
     print(newList)
 
-
-#on hunter's function, he returns a list of the 
-#user inputted amount of dices that will be rolled
-#in his example its '8', so it will generate
-#for example [55192, 12506, 25181, 63907, 31987, 40453, 49322, 39844]
-#using for loop (for i in list), just retrieve the value pair
-#associated with each and append each to a new list and return that
 #return for corbyn's HTML page {{ result }}
 def generatedPassword(sample):
     for i in sample:
         logic(i)
-#error occurs because the numbers generated from
-#11111-66666 dont exactly correlate to the .txt file from
-#which we input the passwords from
-#so my loop (cody's) doesnt recognize that the strings
-#arent even in my dictionary to begin with
+
 generatedPassword(rus)
