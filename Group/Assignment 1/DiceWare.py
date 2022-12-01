@@ -60,11 +60,4 @@ def possible_passwords(num_rolls):
     #return total number of combinations formatted 
     return format(passwords, ',d')
 
-#main function
-def main():
-    t = 5
-    #return
 
-
-user = possible_passwords(2)
-print(user)
