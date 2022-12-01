@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head> </head>
 <body>
-<centre>
+<center>
 <h1> Diceware Password Generator </h1>
 <p> Generate high-entropy passwords the easy way! </p>
 <h2> Number of Dice Rolls: </h2>
@@ -12,8 +12,20 @@
 <button onclick="myFunction(event)">6</button>
 <button onclick="myFunction(event)">7</button>
 <button onclick="myFunction(event)">8</button>
-<br>
-<button>Roll dice!</button>
+<br><br>
+<button onclick="loadDoc()"> roll dice!</button>
+<script> 
+function myFunction(event) {
+$.ajax({
+  url: "/api/getWeather",
+  data: {
+    zipcode: 97201
+  },
+  success: function( result ) {
+    $( "#weather-temp" ).html( "<strong>" + result + "</strong> degrees" );
+  }
+}); }
+</script>
 </centre>
 </body>
 </html>
