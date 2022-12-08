@@ -22,5 +22,52 @@
       <a href="/swapcase"> <button>SwapCase</button></a>
     </h3>
   </head>
-  <body></body>
+  <body>
+    <div>
+      <canvas id="myChart"></canvas>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      const ctx = document.getElementById('myChart');
+
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Male', 'Female'],
+          datasets: [{
+            label: 'Number of Survivors',
+            data: [{{ sMale }}, {{ sFemale }}],
+            borderWidth: 1
+          },{
+            label: 'Number of Deceased',
+            data: [{{ dMale }}, {{ dFemale }}],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+              stacked: true,
+              title: {
+                  display: true,
+                  text: "Number of Passengers"
+              }
+            },
+
+            x: {
+              stacked: true
+            }
+          },
+          plugins: {
+              title: {
+                  display: true,
+                  text: "Titanic Passenger Survival Rate by Gender",
+
+              }
+          }
+        }
+      });
+    </script>
+  </body>
 </html>

@@ -1,5 +1,6 @@
 import json
 import time
+import csv
 
 from flask import Flask, jsonify, render_template, request
 
@@ -130,7 +131,26 @@ def dicwareData():
 
 @app.route("/datasets")
 def datasets():
-    return render_template("datasets.html")
+    with open("titanic.csv", 'r') as infile:
+        reader = csv.reader(infile, delimiter=",")
+        sMale = 0
+        sFemale = 0
+        dMale = 0
+        dFemale = 0
+
+        for row in reader:
+            if row[1] == "1" and row[4] == "male":
+                sMale += 1
+            elif row[1] == "1" and row[4] == "female":
+                sFemale += 1
+            elif row[1] == "0" and row[4] == "male":
+                dMale += 1
+            elif row[1] == "0" and row[4] == "female":
+                dFemale += 1
+            else:
+                continue
+
+    return render_template("datasets.html", sMale=sMale, sFemale=sFemale, dMale=dMale, dFemale=dFemale)
 
 
 # cant use random function
